@@ -41,7 +41,7 @@ class Presence(BaseClient):
         self.send_data(1, payload)
         return self.loop.run_until_complete(self.read_output())
 
-    def connect(self):
+    def connect(self, pid: int = os.getpid(), pathToFile: str = None):
         self.update_event_loop(get_event_loop())
         self.loop.run_until_complete(self.handshake())
 
