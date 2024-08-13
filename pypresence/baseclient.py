@@ -102,8 +102,12 @@ class BaseClient:
                 len(payload)) +
             payload.encode('utf-8'))
 
-    async def handshake(self):
-        ipc_path = get_ipc_path(self.pipe)
+    async def handshake(self, pathToFile: str = None):
+        ipc_path = ""
+        if str:
+            ipc_path = pathToFile
+        else:
+            ipc_path = get_ipc_path(self.pipe)
         if not ipc_path:
             raise DiscordNotFound
 
