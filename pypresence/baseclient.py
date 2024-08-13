@@ -104,7 +104,7 @@ class BaseClient:
 
     async def handshake(self, pathToFile: str = None):
         ipc_path = ""
-        if str:
+        if pathToFile != None:
             ipc_path = pathToFile
         else:
             ipc_path = get_ipc_path(self.pipe)
