@@ -43,7 +43,7 @@ class Presence(BaseClient):
 
     def connect(self, pid: int = os.getpid(), pathToFile: str = None):
         self.update_event_loop(get_event_loop())
-        self.loop.run_until_complete(self.handshake())
+        self.loop.run_until_complete(self.handshake(pathToFile))
 
     def close(self):
         self.send_data(2, {'v': 1, 'client_id': self.client_id})
